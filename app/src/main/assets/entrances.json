@@ -1,0 +1,333 @@
+{
+ "source": "© OpenStreetMap contributors, ODbL",
+ "entrances": [
+  {
+   "stationId": "prospekt_kosmonavtov",
+   "lat": 56.9001958,
+   "lon": 60.613782,
+   "ref": "1",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "prospekt_kosmonavtov",
+   "lat": 56.9004416,
+   "lon": 60.614535,
+   "ref": "2",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "prospekt_kosmonavtov",
+   "lat": 56.9011768,
+   "lon": 60.6136499,
+   "ref": "3",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "prospekt_kosmonavtov",
+   "lat": 56.9011622,
+   "lon": 60.6144591,
+   "ref": "4",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "prospekt_kosmonavtov",
+   "lat": 56.9026043,
+   "lon": 60.6134712,
+   "ref": "5",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "uralmash",
+   "lat": 56.8869836,
+   "lon": 60.613072,
+   "ref": "1",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "uralmash",
+   "lat": 56.8877553,
+   "lon": 60.6141858,
+   "ref": "2",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "uralmash",
+   "lat": 56.8876836,
+   "lon": 60.6141791,
+   "ref": "2",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "uralmash",
+   "lat": 56.887764,
+   "lon": 60.6129026,
+   "ref": "3",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "uralmash",
+   "lat": 56.8896112,
+   "lon": 60.6132454,
+   "ref": "5",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "mashinostroiteley",
+   "lat": 56.8758948,
+   "lon": 60.6121802,
+   "ref": "2",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "mashinostroiteley",
+   "lat": 56.8782565,
+   "lon": 60.6121167,
+   "ref": "4",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "mashinostroiteley",
+   "lat": 56.8785919,
+   "lon": 60.6121018,
+   "ref": "6",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "uralskaya",
+   "lat": 56.8576145,
+   "lon": 60.6001169,
+   "ref": "1",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "uralskaya",
+   "lat": 56.8580591,
+   "lon": 60.600904,
+   "ref": "2",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "dinamo",
+   "lat": 56.8478121,
+   "lon": 60.5995088,
+   "ref": "1",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "ploschad_1905",
+   "lat": 56.8359572,
+   "lon": 60.5985985,
+   "ref": "1",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "ploschad_1905",
+   "lat": 56.8362676,
+   "lon": 60.5997116,
+   "ref": "2",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "geologicheskaya",
+   "lat": 56.8303964,
+   "lon": 60.5998448,
+   "ref": "",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "geologicheskaya",
+   "lat": 56.8288985,
+   "lon": 60.6010728,
+   "ref": "",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "geologicheskaya",
+   "lat": 56.826347,
+   "lon": 60.6030325,
+   "ref": "1",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "geologicheskaya",
+   "lat": 56.8264502,
+   "lon": 60.6037396,
+   "ref": "2",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "geologicheskaya",
+   "lat": 56.826835,
+   "lon": 60.6019908,
+   "ref": "3",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "geologicheskaya",
+   "lat": 56.8268181,
+   "lon": 60.6035909,
+   "ref": "4",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "geologicheskaya",
+   "lat": 56.8273398,
+   "lon": 60.6020861,
+   "ref": "5",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "geologicheskaya",
+   "lat": 56.8274637,
+   "lon": 60.603199,
+   "ref": "6",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "chkalovskaya",
+   "lat": 56.8082046,
+   "lon": 60.6095755,
+   "ref": "1",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "chkalovskaya",
+   "lat": 56.8081221,
+   "lon": 60.6104186,
+   "ref": "2",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "chkalovskaya",
+   "lat": 56.8083333,
+   "lon": 60.6092161,
+   "ref": "3",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "chkalovskaya",
+   "lat": 56.8085145,
+   "lon": 60.6107116,
+   "ref": "4",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "chkalovskaya",
+   "lat": 56.8087193,
+   "lon": 60.6096812,
+   "ref": "5",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "chkalovskaya",
+   "lat": 56.808776,
+   "lon": 60.610523,
+   "ref": "6",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "chkalovskaya",
+   "lat": 56.8089349,
+   "lon": 60.6100822,
+   "ref": "8",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "botanicheskaya",
+   "lat": 56.7973504,
+   "lon": 60.6295683,
+   "ref": "1",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "botanicheskaya",
+   "lat": 56.7974563,
+   "lon": 60.6332343,
+   "ref": "2",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "botanicheskaya",
+   "lat": 56.7977609,
+   "lon": 60.6335542,
+   "ref": "3",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "botanicheskaya",
+   "lat": 56.7979121,
+   "lon": 60.6340402,
+   "ref": "4",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "botanicheskaya",
+   "lat": 56.7977598,
+   "lon": 60.6345178,
+   "ref": "5",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "botanicheskaya",
+   "lat": 56.7972949,
+   "lon": 60.6349483,
+   "ref": "6",
+   "name": "",
+   "wheelchair": "yes"
+  },
+  {
+   "stationId": "botanicheskaya",
+   "lat": 56.7966516,
+   "lon": 60.6324441,
+   "ref": "7",
+   "name": "",
+   "wheelchair": ""
+  },
+  {
+   "stationId": "botanicheskaya",
+   "lat": 56.7968174,
+   "lon": 60.6315059,
+   "ref": "8",
+   "name": "",
+   "wheelchair": ""
+  }
+ ]
+}

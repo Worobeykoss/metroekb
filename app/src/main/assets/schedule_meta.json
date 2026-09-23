@@ -1,0 +1,50 @@
+{
+ "checkedAt": "2026-09-23",
+ "stations": {
+  "prospekt_kosmonavtov": {
+   "page": "https://metro-ektb.ru/podrobnyy-grafik-st-prospekt-kosmonavtov-grafik_12",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_6.jpg",
+   "lastModified": "Tue, 03 Feb 2026 10:14:10 GMT"
+  },
+  "uralmash": {
+   "page": "https://metro-ektb.ru/podrobnyy-grafik-st-uralmash-grafik_12",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_7.jpg",
+   "lastModified": "Tue, 03 Feb 2026 10:55:49 GMT"
+  },
+  "mashinostroiteley": {
+   "page": "https://metro-ektb.ru/podrobnyy-grafik-st-mashinostroiteley-grafik_12/",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_8.jpg",
+   "lastModified": "Tue, 03 Feb 2026 11:30:09 GMT"
+  },
+  "uralskaya": {
+   "page": "https://metro-ektb.ru/podrobnyy-grafik-st-uralskaya-grafik_12",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_11.jpg",
+   "lastModified": "Wed, 04 Feb 2026 06:13:02 GMT"
+  },
+  "dinamo": {
+   "page": "https://metro-ektb.ru/podrobnyy-grafik-stancii-dinamo-grafik_12",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_12.jpg",
+   "lastModified": "Wed, 04 Feb 2026 07:56:58 GMT"
+  },
+  "ploschad_1905": {
+   "page": "https://metro-ektb.ru/podrobnyy-grafik-st-ploschad-1905-goda-grafik_12/",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_14.jpg",
+   "lastModified": "Wed, 04 Feb 2026 11:30:32 GMT"
+  },
+  "geologicheskaya": {
+   "page": "https://metro-ektb.ru/podrobnyy-grafik-st-geologicheskaya-grafik_12/",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_15.jpg",
+   "lastModified": "Thu, 05 Feb 2026 04:00:19 GMT"
+  },
+  "chkalovskaya": {
+   "page": "https://metro-ektb.ru/podrobnyy-grafik-st-chkalovskaya-grafik_12",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_16.jpg",
+   "lastModified": "Thu, 05 Feb 2026 04:48:22 GMT"
+  },
+  "botanicheskaya": {
+   "page": "https://metro-ektb.ru/podrobnye-grafik-st-botanicheskaya-grafik_12",
+   "weekdayImage": "https://metro-ektb.ru/uploadedFiles/images/_17.jpg",
+   "lastModified": "Thu, 05 Feb 2026 05:17:59 GMT"
+  }
+ }
+}
