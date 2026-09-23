@@ -95,7 +95,7 @@ private const val ACCESSIBLE_BLUE = "#1E88E5"
 private const val FAVORITE_FILL = "#FFB300"
 
 /**
- * Все элементы — НАТИВНЫЕ слои MapLibre, поэтому они намертво приклеены к карте и не
+ * Все элементы - НАТИВНЫЕ слои MapLibre, поэтому они намертво приклеены к карте и не
  * «плавают» при быстром перетаскивании. Смена темы перезагружает базовый стиль и заново
  * строит наши слои; последние данные (пользователь, маршрут, избранное, видимость слоёв)
  * контроллер помнит и накладывает на новый стиль сам.
@@ -120,7 +120,7 @@ class MetroMapController(
     /** Уже добавленные в текущий стиль картинки-плашки («~2½ мин» и т. п.). */
     private val labelImages = HashSet<String>()
 
-    // Последнее известное состояние — чтобы восстановить его после смены стиля.
+    // Последнее известное состояние - чтобы восстановить его после смены стиля.
     private var lastUser: Pair<Double, Double>? = null
     private var lastWalk: List<Pair<Double, Double>>? = null
     private var favorites: Set<String> = emptySet()
@@ -157,10 +157,10 @@ class MetroMapController(
         visible.forEach { (layer, v) -> setLayerVisible(layer, v) }
     }
 
-    /** Сменить тему: другой базовый стиль — перезагрузка, иначе просто перестройка слоёв. */
+    /** Сменить тему: другой базовый стиль - перезагрузка, иначе просто перестройка слоёв. */
     fun applyTheme(newTheme: MapTheme) {
         if (newTheme == theme && style != null) return
-        // Источники старого стиля после перезагрузки недействительны — не трогаем их.
+        // Источники старого стиля после перезагрузки недействительны - не трогаем их.
         style = null
         trainsSource = null
         effectsSource = null
@@ -249,7 +249,7 @@ class MetroMapController(
 
     /**
      * Картинка-плашка над поездом. Разных подписей немного («прибывает», «~1 мин», …),
-     * поэтому каждую рисуем один раз и кэшируем в стиле (цвет — часть ключа).
+     * поэтому каждую рисуем один раз и кэшируем в стиле (цвет - часть ключа).
      */
     private fun labelImage(style: Style, t: TrainMarker): String {
         val ring = directionColor(t.kind)
@@ -277,7 +277,7 @@ class MetroMapController(
         st.getLayer(MapConfig.LYR_TRAILS_NORTH)?.setProperties(lineGradient(trailGradient(north)))
     }
 
-    /** Избранные станции — крупнее и янтарные. */
+    /** Избранные станции - крупнее и янтарные. */
     fun setFavorites(ids: Set<String>) {
         favorites = ids
         stationsSource?.setGeoJson(FeatureCollection.fromFeatures(stationFeatures()))
@@ -294,7 +294,7 @@ class MetroMapController(
         src.setGeoJson(fc)
     }
 
-    /** points — список (lat, lon) вдоль пешего маршрута. */
+    /** points - список (lat, lon) вдоль пешего маршрута. */
     fun updateWalk(points: List<Pair<Double, Double>>?) {
         lastWalk = points
         val src = walkSource ?: return
@@ -355,7 +355,7 @@ class MetroMapController(
         )
     }
 
-    /** Сетка «чертежа» — линии через ~1 км над областью города. */
+    /** Сетка «чертежа» - линии через ~1 км над областью города. */
     private fun addGrid(style: Style) {
         val gridColor = theme.gridColor ?: return
         val lines = ArrayList<Feature>()
@@ -440,7 +440,7 @@ class MetroMapController(
         }
     }
 
-    /** Входы в метро: кружки с номером вблизи (с 14-го масштаба); доступные — синие. */
+    /** Входы в метро: кружки с номером вблизи (с 14-го масштаба); доступные - синие. */
     private fun addEntrances(style: Style) {
         val features = entrances.map { e ->
             Feature.fromGeometry(Point.fromLngLat(e.lon, e.lat)).apply {
@@ -618,7 +618,7 @@ private fun makeTrainBitmap(density: Float, bodyColor: Int, strokeColor: Int): B
     val canvas = Canvas(bmp)
     val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
-    // Мягкий ореол цвета направления — поезд видно на тёмной карте.
+    // Мягкий ореол цвета направления - поезд видно на тёмной карте.
     paint.style = Paint.Style.FILL
     paint.color = (bodyColor and 0x00FFFFFF) or (0x4D shl 24)
     canvas.drawRoundRect(RectF(0f, 0f, w.toFloat(), h.toFloat()), w / 2f, w / 2f, paint)
@@ -683,7 +683,7 @@ private fun makeLabelBitmap(density: Float, text: String, bgColor: Int, ringColo
 
 /**
  * Compose-обёртка: жизненный цикл MapView, стиль по теме, слои. Поезда и эффекты обновляются
- * покадрово (withFrameNanos) через [frameProvider]; остальное — при изменении входных данных.
+ * покадрово (withFrameNanos) через [frameProvider]; остальное - при изменении входных данных.
  */
 @Composable
 fun MetroMap(

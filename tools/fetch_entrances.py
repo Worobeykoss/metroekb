@@ -8,7 +8,7 @@
 Нужен компасу «к ближайшему входу».
 
 Запуск:  python tools/fetch_entrances.py [файл_overpass.json]
-wheelchair (yes/limited/no) — доступность входа для колясок, если отмечена в OSM.
+wheelchair (yes/limited/no) - доступность входа для колясок, если отмечена в OSM.
 Данные © участники OpenStreetMap, ODbL.
 """
 import json

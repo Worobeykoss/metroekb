@@ -4,7 +4,7 @@ import android.content.Context
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
-/** Вход в метро (из OpenStreetMap, см. tools/fetch_entrances.py). ref — номер входа. */
+/** Вход в метро (из OpenStreetMap, см. tools/fetch_entrances.py). ref - номер входа. */
 @Serializable
 data class Entrance(
     val stationId: String,

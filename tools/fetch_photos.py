@@ -4,7 +4,7 @@
 Фото станций из Wikimedia Commons -> app/src/main/assets/photos.json.
 
 Для каждой станции: главное фото (Wikidata P18) + до MAX_PER_STATION файлов из её категории
-на Commons (P373). Для каждого файла — URL превью шириной THUMB_W, автор и лицензия (для
+на Commons (P373). Для каждого файла - URL превью шириной THUMB_W, автор и лицензия (для
 подписи в приложении). Сами картинки не бандлятся: приложение грузит превью по сети.
 
 Запуск:  python tools/fetch_photos.py
@@ -43,7 +43,7 @@ def get_json(url, params):
         except urllib.error.HTTPError as e:
             if e.code != 429:
                 raise
-    raise SystemExit("Commons не отвечает (429) — попробуйте позже")
+    raise SystemExit("Commons не отвечает (429) - попробуйте позже")
 
 
 def clean(s):

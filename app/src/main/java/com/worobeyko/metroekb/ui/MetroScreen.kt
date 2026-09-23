@@ -104,7 +104,7 @@ fun MetroScreen(
     onOpenSettings: () -> Unit,
 ) {
     val context = LocalContext.current
-    // График может обновиться с сайта на лету — тогда пересоздаём репозиторий и симулятор.
+    // График может обновиться с сайта на лету - тогда пересоздаём репозиторий и симулятор.
     val repoVersion by ScheduleRepository.version
     val repo = remember(repoVersion) { ScheduleRepository.get(context) }
     val simulator = remember(repo) { TrainSimulator(repo) }
@@ -242,7 +242,7 @@ fun MetroScreen(
     }
 
     val selectedTrainPos = selectedTrain?.let { simulator.locate(it, dayType, clock.serviceMinute) }
-    // Поезд доехал до конечной — слежение заканчивается само.
+    // Поезд доехал до конечной - слежение заканчивается само.
     LaunchedEffect(selectedTrainPos == null, following) {
         if (following && selectedTrain != null && selectedTrainPos == null) {
             delay(2500)
@@ -281,10 +281,10 @@ fun MetroScreen(
             onControllerReady = { controller = it },
             modifier = Modifier
                 .fillMaxSize()
-                .semantics { contentDescription = "Карта метро с поездами. Список станций — кнопка «Все станции»." },
+                .semantics { contentDescription = "Карта метро с поездами. Список станций - кнопка «Все станции»." },
         )
 
-        // Верхняя плашка: день, время и «до закрытия». 5 быстрых тапов — поезд-призрак.
+        // Верхняя плашка: день, время и «до закрытия». 5 быстрых тапов - поезд-призрак.
         Surface(
             color = MaterialTheme.colorScheme.surface.copy(alpha = 0.86f),
             shape = RoundedCornerShape(14.dp),
@@ -320,7 +320,7 @@ fun MetroScreen(
             }
         }
 
-        // Маленькое GPS-окошко (справа сверху); пока открыт диалог — прячем, чтобы не наезжали.
+        // Маленькое GPS-окошко (справа сверху); пока открыт диалог - прячем, чтобы не наезжали.
         if (nearest != null && !anyOpen) {
             val arrivals = simulator.stationArrivals(nearest.station.id, dayType, clock.serviceMinute, count = 4)
             GpsMiniPanel(
@@ -366,7 +366,7 @@ fun MetroScreen(
             )
         }
 
-        // Поезд: большое окно, а во время слежения — компактная плашка сверху.
+        // Поезд: большое окно, а во время слежения - компактная плашка сверху.
         selectedTrain?.let { ref ->
             if (following) {
                 FollowBar(
@@ -493,7 +493,7 @@ fun MetroScreen(
             }
         }
 
-        // Вид из кабины — поверх всего.
+        // Вид из кабины - поверх всего.
         cabinRef?.let { ref ->
             CabinView(
                 ref = ref,

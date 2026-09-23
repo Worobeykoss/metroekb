@@ -23,7 +23,7 @@ class ScheduleRepository private constructor(val doc: ScheduleDoc, geometry: Lin
     val idToIndex: Map<String, Int> =
         doc.stations.mapIndexed { index, station -> station.id to index }.toMap()
 
-    /** Форма линии; без данных — прямые между станциями. */
+    /** Форма линии; без данных - прямые между станциями. */
     val geometry: LineGeometry = geometry ?: LineGeometry.straight(doc.stations.map { it.lat to it.lon })
 
     fun station(id: String): Station? = doc.stations.firstOrNull { it.id == id }
@@ -50,7 +50,7 @@ class ScheduleRepository private constructor(val doc: ScheduleDoc, geometry: Lin
         private var instance: ScheduleRepository? = null
         val json = Json { ignoreUnknownKeys = true }
 
-        /** Растёт при каждой подмене графика — экран пересоздаёт симулятор. */
+        /** Растёт при каждой подмене графика - экран пересоздаёт симулятор. */
         val version = mutableIntStateOf(0)
 
         fun get(context: Context): ScheduleRepository =

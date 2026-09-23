@@ -12,7 +12,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import kotlin.math.roundToInt
 
-/** Погода «наверху» у станции. code — код погоды WMO (Open-Meteo). */
+/** Погода «наверху» у станции. code - код погоды WMO (Open-Meteo). */
 data class Weather(val tempC: Double, val code: Int, val precipitationMm: Double, val windMs: Double) {
 
     private val isSnow get() = code in 71..77 || code in 85..86
@@ -110,7 +110,7 @@ object WeatherRepository {
     }
 }
 
-/** Погода у станции для UI; null — ещё грузится или нет сети. */
+/** Погода у станции для UI; null - ещё грузится или нет сети. */
 @Composable
 fun rememberWeather(station: Station?): State<Weather?> {
     val state = remember(station?.id) { mutableStateOf(station?.let { WeatherRepository.cached(it.id) }) }

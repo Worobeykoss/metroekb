@@ -23,11 +23,11 @@ fun App() {
     val settings = remember { Settings.load(prefs) }
     var screen by remember { mutableStateOf(Screen.MAP) }
 
-    // Любое изменение настроек — сразу в SharedPreferences.
+    // Любое изменение настроек - сразу в SharedPreferences.
     LaunchedEffect(Unit) {
         snapshotFlow { settings.snapshot() }.collect { settings.save(prefs) }
     }
-    // Цвета поездов — общие для карты и панелей.
+    // Цвета поездов - общие для карты и панелей.
     SideEffect {
         TrainPalette.south = settings.southColor
         TrainPalette.north = settings.northColor

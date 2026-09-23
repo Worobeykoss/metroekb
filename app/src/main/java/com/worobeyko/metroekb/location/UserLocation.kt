@@ -91,7 +91,7 @@ fun rememberUserLocation(): State<UserLocation?> {
         val lm = context.getSystemService(Context.LOCATION_SERVICE) as? LocationManager
             ?: return@DisposableEffect onDispose { }
 
-        // Полный объект (не лямбда): на API 26–29 у LocationListener нет default-методов,
+        // Полный объект (не лямбда): на API 26-29 у LocationListener нет default-методов,
         // иначе система вызовет неимплементированный метод -> AbstractMethodError.
         val listener = object : LocationListener {
             override fun onLocationChanged(loc: Location) {

@@ -3,9 +3,9 @@
 """
 Настоящая геометрия линии из OpenStreetMap -> app/src/main/assets/geometry.json.
 
-Берёт самый длинный путь railway=subway основной линии (без service=yard/spur/crossover —
+Берёт самый длинный путь railway=subway основной линии (без service=yard/spur/crossover -
 это депо и съезды; два пути тоннеля идут рядом, одного достаточно), проецирует на него станции
-и режет на перегоны. Перегон упрощается (Дуглас—Пекер, ~4 м) и сохраняется списком [lat, lon].
+и режет на перегоны. Перегон упрощается (Дуглас-Пекер, ~4 м) и сохраняется списком [lat, lon].
 
 Запуск:  python tools/fetch_geometry.py [файл_overpass.json]
 Без аргумента качает с Overpass (перебирает зеркала). Данные © участники OpenStreetMap, ODbL.
@@ -45,13 +45,13 @@ def fetch():
             raw = urllib.request.urlopen(req, timeout=120).read()
             if raw[:1] == b"{":
                 return json.loads(raw)
-        except Exception as e:  # noqa: BLE001 — перебираем зеркала
+        except Exception as e:  # noqa: BLE001 - перебираем зеркала
             print("mirror failed:", url, e)
-    raise SystemExit("Overpass недоступен — попробуйте позже")
+    raise SystemExit("Overpass недоступен - попробуйте позже")
 
 
 def simplify(points, eps):
-    """Дуглас—Пекер в локальной плоской проекции (метры)."""
+    """Дуглас-Пекер в локальной плоской проекции (метры)."""
     if len(points) < 3:
         return points
     lat0 = math.radians(points[0][0])
@@ -110,8 +110,8 @@ def main():
     data = json.load(open(sys.argv[1], encoding="utf-8")) if len(sys.argv) > 1 else fetch()
     stations = json.load(open(os.path.join(ASSETS, "schedule.json"), encoding="utf-8"))["stations"]
 
-    # Основная линия — самый длинный путь без service (депо/съезды). Два пути тоннеля идут
-    # рядом (метров 10–20), поэтому одного достаточно.
+    # Основная линия - самый длинный путь без service (депо/съезды). Два пути тоннеля идут
+    # рядом (метров 10-20), поэтому одного достаточно.
     main_ways = [w for w in data["elements"] if w.get("type") == "way" and not w.get("tags", {}).get("service")]
     way = max(main_ways, key=lambda w: len(w["geometry"]))
     poly = [(p["lat"], p["lon"]) for p in way["geometry"]]
@@ -130,7 +130,7 @@ def main():
             print(f"  {a['name']} -> {b['name']}: порядок нарушен, оставляю прямую")
             pts = [(a["lat"], a["lon"]), (b["lat"], b["lon"])]
         else:
-            # Концы — точно в станциях, чтобы поезд приходил ровно в кружок на карте.
+            # Концы - точно в станциях, чтобы поезд приходил ровно в кружок на карте.
             pts = [(a["lat"], a["lon"])] + poly[pa[2] + 1: pb[2] + 1] + [(b["lat"], b["lon"])]
             pts = simplify(pts, SIMPLIFY_M)
         length = sum(dist_m(x, y) for x, y in zip(pts, pts[1:]))

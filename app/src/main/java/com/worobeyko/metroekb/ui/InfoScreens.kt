@@ -133,7 +133,7 @@ fun TravelTimesScreen(onBack: () -> Unit) {
                                 },
                                 RoundedCornerShape(5.dp),
                             )
-                            .semantics { contentDescription = if (v >= 0) "${from.name} — ${to.name}: $v мин" else "${from.name}" }
+                            .semantics { contentDescription = if (v >= 0) "${from.name} - ${to.name}: $v мин" else "${from.name}" }
                             .clickable(enabled = v >= 0) { picked = i to j },
                         contentAlignment = Alignment.Center,
                     ) {
@@ -149,7 +149,7 @@ fun TravelTimesScreen(onBack: () -> Unit) {
             Text("${repo.stations[i].name} → ${repo.stations[j].name}", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
             Text("в пути ~${table[i][j]} мин, в сторону «${Directions.terminal(dir)}», ${kotlin.math.abs(j - i)} перегон(а/ов)",
                 fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        } ?: Text("Нажмите на клетку — покажу подробнее.", fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        } ?: Text("Нажмите на клетку - покажу подробнее.", fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Spacer(Modifier.size(6.dp))
         Text("Время по графику, днём; без ожидания поезда.", fontSize = 11.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
@@ -183,7 +183,7 @@ fun HistoryScreen(onBack: () -> Unit) {
         )
         status?.let { Text(it, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground) }
         if (ScheduleUpdater.weekdayOutdated(context)) {
-            Text("⚠ Будни на сайте менялись после сборки приложения — время по будням может быть неточным.",
+            Text("⚠ Будни на сайте менялись после сборки приложения - время по будням может быть неточным.",
                 fontSize = 13.sp, color = Color(0xFFFF8A80))
         }
         Spacer(Modifier.size(8.dp))

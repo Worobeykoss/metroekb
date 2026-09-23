@@ -20,7 +20,7 @@ import kotlin.math.sin
 
 /**
  * Куда «смотрит» верх экрана, градусы от ИСТИННОГО севера (0..360), сглаженно.
- * null — у телефона нет компаса. [lat]/[lon] нужны для поправки на магнитное склонение.
+ * null - у телефона нет компаса. [lat]/[lon] нужны для поправки на магнитное склонение.
  */
 @Composable
 fun rememberHeading(enabled: Boolean, lat: Double?, lon: Double?): State<Float?> {

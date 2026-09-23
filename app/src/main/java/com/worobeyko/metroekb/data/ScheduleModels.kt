@@ -22,7 +22,7 @@ object Directions {
         else -> direction
     }
 
-    /** Короткое имя конечной — для узких плашек. */
+    /** Короткое имя конечной - для узких плашек. */
     fun terminalShort(direction: String): String = when (direction) {
         SOUTH -> "Ботаническая"
         NORTH -> "Космонавтов"

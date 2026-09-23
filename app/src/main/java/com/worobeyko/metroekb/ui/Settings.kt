@@ -41,7 +41,7 @@ class Settings {
     var accessibleOnly by mutableStateOf(false)
     var appIcon by mutableStateOf(AppIcon.DEFAULT)
 
-    /** Снимок всех полей — чтение регистрирует зависимости для snapshotFlow. */
+    /** Снимок всех полей - чтение регистрирует зависимости для snapshotFlow. */
     fun snapshot(): List<Any> = listOf(
         dayMode, showTrains, showTrainTimers, showPulses, showCatch, showTrails, showLabels,
         showWalkRoute, walkSpeedKmh, learnWalkSpeed, walkSamples, theme, southColor, northColor,

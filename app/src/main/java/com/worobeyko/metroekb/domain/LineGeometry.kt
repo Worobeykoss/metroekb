@@ -6,10 +6,10 @@ import kotlin.math.sin
 import kotlin.math.sqrt
 
 /**
- * Настоящая форма линии: segments[i] — ломаная (lat, lon) от станции i к станции i+1
- * (из OpenStreetMap, см. tools/fetch_geometry.py). Нет данных — прямые между станциями.
+ * Настоящая форма линии: segments[i] - ломаная (lat, lon) от станции i к станции i+1
+ * (из OpenStreetMap, см. tools/fetch_geometry.py). Нет данных - прямые между станциями.
  *
- * Положение на линии задаётся «глобальной» координатой — метрами от первой станции
+ * Положение на линии задаётся «глобальной» координатой - метрами от первой станции
  * (Проспект Космонавтов) вдоль пути.
  */
 class LineGeometry(segments: List<List<Pair<Double, Double>>>) {
@@ -49,7 +49,7 @@ class LineGeometry(segments: List<List<Pair<Double, Double>>>) {
 
     fun stationGlobal(i: Int): Double = stationAt[i.coerceIn(0, stationAt.lastIndex)]
 
-    /** Точка на линии по глобальной координате; bearing — по ходу увеличения координаты (на юг). */
+    /** Точка на линии по глобальной координате; bearing - по ходу увеличения координаты (на юг). */
     fun pointAt(global: Double): Pose {
         if (segs.isEmpty()) return Pose(0.0, 0.0, 0.0)
         val g = global.coerceIn(0.0, totalLength)
@@ -89,10 +89,10 @@ class LineGeometry(segments: List<List<Pair<Double, Double>>>) {
         return if (from <= to) out else out.asReversed()
     }
 
-    /** Вся линия одной ломаной — для слоя маршрута на карте. */
+    /** Вся линия одной ломаной - для слоя маршрута на карте. */
     fun polyline(): List<Pair<Double, Double>> = slice(0.0, totalLength)
 
-    /** Касательная (курс, градусы) в станции i — вдоль линии на юг. */
+    /** Касательная (курс, градусы) в станции i - вдоль линии на юг. */
     fun bearingAtStation(i: Int): Double {
         val g = stationGlobal(i)
         val a = pointAt((g - 60).coerceAtLeast(0.0))
@@ -101,7 +101,7 @@ class LineGeometry(segments: List<List<Pair<Double, Double>>>) {
     }
 
     companion object {
-        /** Прямые между станциями — когда геометрии нет (или для тестов). */
+        /** Прямые между станциями - когда геометрии нет (или для тестов). */
         fun straight(points: List<Pair<Double, Double>>): LineGeometry =
             LineGeometry(points.zipWithNext { a, b -> listOf(a, b) })
 

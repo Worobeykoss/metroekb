@@ -89,8 +89,8 @@ private val DefaultSouthAccent = Color(0xFFC77A00)
 private val DefaultNorthAccent = Color(0xFF0277BD)
 
 /**
- * Цвет направления для светлых панелей — тот же оттенок, что у поездов на карте, но темнее,
- * чтобы читался на кремовом фоне. Стандартные цвета — подобранные вручную.
+ * Цвет направления для светлых панелей - тот же оттенок, что у поездов на карте, но темнее,
+ * чтобы читался на кремовом фоне. Стандартные цвета - подобранные вручную.
  */
 internal fun accentOf(direction: String): Color {
     val south = direction == Directions.SOUTH
@@ -113,10 +113,10 @@ internal fun nextStationOf(stations: List<Station>, stationId: String, direction
     return stations.getOrNull(if (direction == Directions.SOUTH) i + 1 else i - 1)
 }
 
-/** Последний поезд дня по направлению: подпись «00:04» и сколько до него минут (<0 — ушёл). */
+/** Последний поезд дня по направлению: подпись «00:04» и сколько до него минут (<0 - ушёл). */
 data class LastTrainInfo(val hhmm: String, val minutesLeft: Int)
 
-/** «Последний поезд скоро» — предупреждаем за полчаса. */
+/** «Последний поезд скоро» - предупреждаем за полчаса. */
 private const val LAST_TRAIN_WARN_MIN = 30
 
 private fun previousTrainText(sinceLastMin: Int?): String? = when {
@@ -182,8 +182,8 @@ internal fun WeatherLine(weather: Weather) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 1) Маленькое GPS-окошко: ближайшая станция, время пешком и по каждому направлению —
-//    ближайший поезд и на какой успеваешь дойти. Тап — компас ко входу.
+// 1) Маленькое GPS-окошко: ближайшая станция, время пешком и по каждому направлению -
+//    ближайший поезд и на какой успеваешь дойти. Тап - компас ко входу.
 // ─────────────────────────────────────────────────────────────────────────────
 @Composable
 fun GpsMiniPanel(
@@ -262,7 +262,7 @@ fun GpsMiniPanel(
             }
         }
 
-        // Последний поезд скоро — красная полоска.
+        // Последний поезд скоро - красная полоска.
         lastTrains.entries
             .filter { it.value.minutesLeft in 0..LAST_TRAIN_WARN_MIN }
             .forEach { (direction, info) ->
@@ -450,7 +450,7 @@ private fun DirectionBlock(dir: DirectionArrivals, nextStation: Station?, last: 
                 fontSize = 16.sp, fontWeight = FontWeight.Black, color = BubbleInk,
             )
             if (nextStation != null) {
-                Text("следующая — ${nextStation.name}", fontSize = 12.sp, color = BubbleInkSoft)
+                Text("следующая - ${nextStation.name}", fontSize = 12.sp, color = BubbleInkSoft)
             }
             Spacer(Modifier.height(4.dp))
 
@@ -489,7 +489,7 @@ private fun DirectionBlock(dir: DirectionArrivals, nextStation: Station?, last: 
                         fontSize = 12.sp, fontWeight = FontWeight.Black, color = WarnRed,
                     )
                 } else {
-                    Text("последний поезд — ${last.hhmm}", fontSize = 12.sp, color = BubbleInkSoft)
+                    Text("последний поезд - ${last.hhmm}", fontSize = 12.sp, color = BubbleInkSoft)
                 }
             }
         }
@@ -518,14 +518,14 @@ private fun SchemeTab(info: StationInfo) {
                 Text("→ ${Directions.terminal(dir)}", fontSize = 13.sp, fontWeight = FontWeight.Black, color = BubbleInk)
                 Text(
                     buildString {
-                        append("первый вагон — ")
+                        append("первый вагон - ")
                         append(if (head.isEmpty()) "у этого конца выходов нет" else "к выходам ${refsText(head)}")
                     },
                     fontSize = 12.sp, color = BubbleInk,
                 )
                 Text(
                     buildString {
-                        append("последний — ")
+                        append("последний - ")
                         append(if (tail.isEmpty()) "у этого конца выходов нет" else "к выходам ${refsText(tail)}")
                     },
                     fontSize = 12.sp, color = BubbleInk,
@@ -548,7 +548,7 @@ private fun SchemeTab(info: StationInfo) {
     )
 }
 
-/** Платформа сбоку: слева — сторона Проспекта Космонавтов, справа — Ботанической. */
+/** Платформа сбоку: слева - сторона Проспекта Космонавтов, справа - Ботанической. */
 @Composable
 private fun StationSchemeView(exits: List<SchemeExit>) {
     val measurer = rememberTextMeasurer()
@@ -645,7 +645,7 @@ private fun NoteTab(info: StationInfo, onNoteChange: (StationNote) -> Unit) {
             .border(BorderStroke(1.5.dp, BubbleInk), RoundedCornerShape(10.dp))
             .padding(10.dp),
         decorationBox = { inner ->
-            if (note.text.isEmpty()) Text("например: выход 3 — к офису", fontSize = 14.sp, color = BubbleInkSoft)
+            if (note.text.isEmpty()) Text("например: выход 3 - к офису", fontSize = 14.sp, color = BubbleInkSoft)
             inner()
         },
     )

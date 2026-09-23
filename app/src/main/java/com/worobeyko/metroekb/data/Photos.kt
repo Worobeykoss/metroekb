@@ -44,7 +44,7 @@ object PhotoRepository {
     }
 }
 
-/** Загрузка картинок по сети с кэшем в памяти (превью ~640 px — хватает маленького кэша). */
+/** Загрузка картинок по сети с кэшем в памяти (превью ~640 px - хватает маленького кэша). */
 object RemoteImages {
     private val cache = LruCache<String, ImageBitmap>(16)
 

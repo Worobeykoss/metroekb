@@ -9,8 +9,8 @@ import androidx.compose.ui.graphics.Color
 
 // Акцент = красный цвет линии 1.
 val LineRed = Color(0xFFE8452A)
-val TrainSouth = Color(0xFFFFB300) // на юг — тёплый янтарь
-val TrainNorth = Color(0xFF40C4FF) // на север — холодный голубой
+val TrainSouth = Color(0xFFFFB300) // на юг - тёплый янтарь
+val TrainNorth = Color(0xFF40C4FF) // на север - холодный голубой
 val PanelBg = Color(0xFF11151F)
 val ScreenBg = Color(0xFF0B0E14)
 

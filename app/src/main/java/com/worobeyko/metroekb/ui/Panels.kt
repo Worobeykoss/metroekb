@@ -54,7 +54,7 @@ import com.worobeyko.metroekb.domain.ApproxEta
 import com.worobeyko.metroekb.domain.StationArrivals
 import kotlinx.coroutines.launch
 
-/** Включён ли TalkBack (исследование касанием) — следим за изменением на лету. */
+/** Включён ли TalkBack (исследование касанием) - следим за изменением на лету. */
 @Composable
 fun rememberTalkBackEnabled(): Boolean {
     val context = LocalContext.current
@@ -98,7 +98,7 @@ internal fun ComicPanel(
     }
 }
 
-/** Строка станции со временем по направлениям — для избранного и списка станций. */
+/** Строка станции со временем по направлениям - для избранного и списка станций. */
 @Composable
 private fun StationRow(station: Station, arrivals: StationArrivals?, star: Boolean, onOpen: () -> Unit) {
     val dirs = arrivals?.directions.orEmpty()
@@ -125,7 +125,7 @@ private fun StationRow(station: Station, arrivals: StationArrivals?, star: Boole
                     Box(Modifier.size(7.dp).background(accentOf(d.direction), CircleShape))
                     Spacer(Modifier.width(4.dp))
                     Text(
-                        "${Directions.terminalShort(d.direction)} ${first?.let { ApproxEta.of(it.secondsUntil).text } ?: "—"}",
+                        "${Directions.terminalShort(d.direction)} ${first?.let { ApproxEta.of(it.secondsUntil).text } ?: "-"}",
                         fontSize = 12.sp, fontWeight = FontWeight.Bold, color = accentOf(d.direction),
                     )
                 }
@@ -135,7 +135,7 @@ private fun StationRow(station: Station, arrivals: StationArrivals?, star: Boole
     Box(Modifier.fillMaxWidth().height(1.dp).background(BubbleRule))
 }
 
-/** Избранные станции: время по ним сразу, тап — открыть станцию. */
+/** Избранные станции: время по ним сразу, тап - открыть станцию. */
 @Composable
 fun FavoritesPanel(
     favorites: List<Station>,
@@ -152,7 +152,7 @@ fun FavoritesPanel(
     }
 }
 
-/** Список всех станций текстом — удобен с TalkBack (карта сама по себе не озвучивается). */
+/** Список всех станций текстом - удобен с TalkBack (карта сама по себе не озвучивается). */
 @Composable
 fun StationListPanel(
     stations: List<Station>,
@@ -168,8 +168,8 @@ fun StationListPanel(
 }
 
 /**
- * Поиск: по мере ввода — станции по названию (без сети), по кнопке «Найти» — адреса
- * через OpenStreetMap. Выбор станции открывает её, выбор адреса — показывает на карте.
+ * Поиск: по мере ввода - станции по названию (без сети), по кнопке «Найти» - адреса
+ * через OpenStreetMap. Выбор станции открывает её, выбор адреса - показывает на карте.
  */
 @Composable
 fun SearchPanel(

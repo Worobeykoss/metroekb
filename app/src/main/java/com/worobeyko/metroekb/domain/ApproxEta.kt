@@ -4,7 +4,7 @@ import kotlin.math.roundToInt
 
 /**
  * Время до поезда «по-человечески». Поезда приходят с разбросом около ±30 с от графика,
- * поэтому посекундный таймер создаёт ложную точность — показываем с шагом в полминуты:
+ * поэтому посекундный таймер создаёт ложную точность - показываем с шагом в полминуты:
  * «прибывает» (в пределах ±30 с), «~1 мин», «~2½ мин», … и целыми минутами от 10 мин.
  */
 data class ApproxEta(val arriving: Boolean, val value: String) {
@@ -42,7 +42,7 @@ data class ApproxEta(val arriving: Boolean, val value: String) {
             if (secondsUntil >= 10 * 60) {
                 return ApproxEta(false, (secondsUntil / 60.0).roundToInt().toString())
             }
-            // Округление до ближайших 30 с; меньше минуты не показываем — это уже почти «прибывает».
+            // Округление до ближайших 30 с; меньше минуты не показываем - это уже почти «прибывает».
             val halves = (secondsUntil / 30.0).roundToInt().coerceAtLeast(2)
             val whole = halves / 2
             return ApproxEta(false, if (halves % 2 == 1) "$whole½" else "$whole")

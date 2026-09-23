@@ -14,7 +14,7 @@ import java.net.URL
 @Serializable
 data class ScheduleChange(
     val timeMs: Long,
-    /** "weekend" — изменились выходные (данные обновлены), "weekday" — сменилась картинка будней. */
+    /** "weekend" - изменились выходные (данные обновлены), "weekday" - сменилась картинка будней. */
     val kind: String,
     val stationId: String,
     val direction: String = "",
@@ -31,9 +31,9 @@ private data class ScheduleMeta(val checkedAt: String = "", val stations: Map<St
 
 /**
  * Раз в сутки сверяет график с сайтом metro-ektb.ru:
- *  - выходные публикуются HTML-таблицами — разбираем, при отличиях сохраняем новый график
+ *  - выходные публикуются HTML-таблицами - разбираем, при отличиях сохраняем новый график
  *    (filesDir/schedule_override.json) и пишем, что поменялось, в историю;
- *  - будни — картинками: сравниваем Last-Modified; если картинку заменили, предупреждаем,
+ *  - будни - картинками: сравниваем Last-Modified; если картинку заменили, предупреждаем,
  *    что будни в приложении могут быть устаревшими (распознать картинку приложение не может).
  */
 object ScheduleUpdater {
@@ -42,7 +42,7 @@ object ScheduleUpdater {
     private const val DAY_MS = 24 * 60 * 60 * 1000L
     private const val UA = "Mozilla/5.0 (Linux; Android) MetroEkb/1.0"
 
-    /** Итог последней проверки для экрана настроек; null — ещё не проверяли. */
+    /** Итог последней проверки для экрана настроек; null - ещё не проверяли. */
     val status = mutableStateOf<String?>(null)
     val running = mutableStateOf(false)
 
@@ -66,7 +66,7 @@ object ScheduleUpdater {
         )
     }
 
-    /** Проверить, если с прошлой проверки прошли сутки (или [force]). Сеть — в фоне. */
+    /** Проверить, если с прошлой проверки прошли сутки (или [force]). Сеть - в фоне. */
     suspend fun checkIfDue(context: Context, force: Boolean = false) {
         val app = context.applicationContext
         if (running.value) return
@@ -126,7 +126,7 @@ object ScheduleUpdater {
             }
         }
 
-        // 2) Будни: картинки на сайте — следим за датой изменения.
+        // 2) Будни: картинки на сайте - следим за датой изменения.
         val p = prefs(context)
         var weekdayChanged = false
         for (st in repo.stations) {
@@ -151,10 +151,10 @@ object ScheduleUpdater {
             android.os.Handler(android.os.Looper.getMainLooper()).post { ScheduleRepository.reload(context) }
         }
         return when {
-            !sane -> "Сайт ответил, но таблицы выходных не разобрались — оставил прежний график"
+            !sane -> "Сайт ответил, но таблицы выходных не разобрались - оставил прежний график"
             weekendChanged && weekdayChanged -> "Выходные обновлены; будни на сайте тоже поменялись"
             weekendChanged -> "График выходных обновлён"
-            weekdayChanged -> "Будни на сайте поменялись — в приложении могут быть старые данные"
+            weekdayChanged -> "Будни на сайте поменялись - в приложении могут быть старые данные"
             else -> "График совпадает с сайтом"
         }
     }

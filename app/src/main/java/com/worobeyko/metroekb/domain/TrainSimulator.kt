@@ -49,7 +49,7 @@ data class TrainPosition(
     val ref: TrainRef get() = TrainRef(direction, fromIndex, departMin)
 }
 
-/** Поезд только что прибыл на станцию (для «вспышки»): ageSec — сколько секунд назад. */
+/** Поезд только что прибыл на станцию (для «вспышки»): ageSec - сколько секунд назад. */
 data class ArrivalEvent(val stationIndex: Int, val direction: String, val ageSec: Double)
 
 /**
@@ -58,7 +58,7 @@ data class ArrivalEvent(val stationIndex: Int, val direction: String, val ageSec
  *  2) поезда «в пути» на перегонах для анимации на карте;
  *  3) слежение за конкретным поездом, прибытия (вспышки), последний поезд.
  * Времена предпосчитываются и кэшируются по типу дня (inflight вызывается покадрово).
- * Чистая логика без Android — тестируется JVM-тестами.
+ * Чистая логика без Android - тестируется JVM-тестами.
  */
 class TrainSimulator(private val repo: ScheduleRepository) {
 
@@ -137,7 +137,7 @@ class TrainSimulator(private val repo: ScheduleRepository) {
 
     /**
      * Время прибытия на bIdx поезда, прошедшего aIdx в tA. Берём ближайший проход по B строго
-     * между tA и следующим проходом по A — так поезд приходит на B ровно в момент из таблицы B.
+     * между tA и следующим проходом по A - так поезд приходит на B ровно в момент из таблицы B.
      */
     private fun legArrival(d: DayData, direction: String, aIdx: Int, tA: Int, bIdx: Int): Int? {
         val aTimes = dirTimes(d, aIdx, direction) ?: return null
@@ -180,8 +180,8 @@ class TrainSimulator(private val repo: ScheduleRepository) {
         for (direction in Directions.ALL) {
             val dt = perStation[direction] ?: continue
             val mins = dt.minutes
-            // mins отсортированы; всё до idx — прошедшие, с idx — предстоящие. Поезд, чьё время
-            // по графику наступило меньше TOLERANCE_SEC назад, ещё может подходить — он остаётся
+            // mins отсортированы; всё до idx - прошедшие, с idx - предстоящие. Поезд, чьё время
+            // по графику наступило меньше TOLERANCE_SEC назад, ещё может подходить - он остаётся
             // в ближайших («прибывает»), а не пропадает раньше, чем реально придёт.
             val cutoff = nowMin - ApproxEta.TOLERANCE_SEC / 60.0
             val idx = lowerBound(mins, cutoff)
@@ -233,7 +233,7 @@ class TrainSimulator(private val repo: ScheduleRepository) {
 
     /**
      * Где сейчас поезд [ref]: идём от его станции по ходу движения, перегон за перегоном, пока не
-     * найдём тот, на котором он едет. null — ещё не отправился или уже прибыл на конечную.
+     * найдём тот, на котором он едет. null - ещё не отправился или уже прибыл на конечную.
      */
     fun locate(ref: TrainRef, dayType: DayType, nowMin: Double): TrainPosition? {
         if (nowMin < ref.minute) return null
@@ -250,7 +250,7 @@ class TrainSimulator(private val repo: ScheduleRepository) {
         }
     }
 
-    /** Служебная минута, когда поезд [ref] будет на станции target; null — станция позади или не по пути. */
+    /** Служебная минута, когда поезд [ref] будет на станции target; null - станция позади или не по пути. */
     fun arrivalAt(ref: TrainRef, target: Int, dayType: DayType): Int? {
         val s = step(ref.direction)
         if ((target - ref.stationIndex) * s < 0) return null
@@ -265,7 +265,7 @@ class TrainSimulator(private val repo: ScheduleRepository) {
         return t
     }
 
-    /** Прибытия за последние windowSec секунд — для «вспышек» станций. */
+    /** Прибытия за последние windowSec секунд - для «вспышек» станций. */
     fun recentArrivals(dayType: DayType, nowMin: Double, windowSec: Double): List<ArrivalEvent> {
         val d = day(dayType)
         val from = nowMin - windowSec / 60.0
@@ -299,7 +299,7 @@ class TrainSimulator(private val repo: ScheduleRepository) {
 
     /**
      * Типичное время в пути между станциями, минуты: медиана по поездам, отправляющимся
-     * с [from] днём (10:00–16:00). null — на одной станции или нет поездов.
+     * с [from] днём (10:00-16:00). null - на одной станции или нет поездов.
      */
     fun travelMinutes(from: Int, to: Int, dayType: DayType): Int? {
         if (from == to) return null
@@ -313,7 +313,7 @@ class TrainSimulator(private val repo: ScheduleRepository) {
 
     /**
      * Сколько поездов проходит станцию за час вокруг [nowMin] (оба направления) и максимум
-     * такого за день — для грубой оценки загруженности: поездов пускают больше, когда людей больше.
+     * такого за день - для грубой оценки загруженности: поездов пускают больше, когда людей больше.
      */
     fun trainsPerHour(stationId: String, dayType: DayType, nowMin: Double): Pair<Int, Int> {
         val all = Directions.ALL.flatMap { d -> day(dayType).times[stationId]?.get(d)?.minutes?.asList().orEmpty() }

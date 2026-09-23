@@ -1,5 +1,5 @@
 # Собирает debug-APK и кладёт его на рабочий стол как MetroEkb.apk.
-# Если двойной клик/ "Выполнить с помощью PowerShell" мигает и закрывается — запусти
+# Если двойной клик/ "Выполнить с помощью PowerShell" мигает и закрывается - запусти
 # вместо него build_apk.bat (двойной клик), он надёжнее. Либо в терминале:
 #   powershell -ExecutionPolicy Bypass -File build_apk.ps1
 try {
@@ -10,7 +10,7 @@ try {
         if (Test-Path (Join-Path $jdk "bin\java.exe")) { $env:JAVA_HOME = $jdk }
     }
     Write-Host "JAVA_HOME = $env:JAVA_HOME"
-    Write-Host "Собираю APK (первый раз качает Gradle и зависимости — это долго)..." -ForegroundColor Cyan
+    Write-Host "Собираю APK (первый раз качает Gradle и зависимости - это долго)..." -ForegroundColor Cyan
 
     & "$PSScriptRoot\gradlew.bat" assembleDebug
     if ($LASTEXITCODE -ne 0) { throw "Сборка не удалась (код $LASTEXITCODE). Текст ошибки выше." }

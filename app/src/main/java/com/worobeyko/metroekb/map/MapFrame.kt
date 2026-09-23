@@ -42,7 +42,7 @@ data class EffectCircle(
 /** «Тепловой след» поезда: точки линии от хвоста следа к поезду (lat, lon). */
 data class Trail(val direction: String, val points: List<Pair<Double, Double>>)
 
-/** Всё, что меняется на карте покадрово. follow — куда вести камеру (lat, lon) или null. */
+/** Всё, что меняется на карте покадрово. follow - куда вести камеру (lat, lon) или null. */
 data class MapFrame(
     val trains: List<TrainMarker>,
     val effects: List<EffectCircle>,
@@ -54,7 +54,7 @@ data class MapFrame(
     }
 }
 
-/** Станция пользователя и сколько до неё идти — для подсветки «успею?». */
+/** Станция пользователя и сколько до неё идти - для подсветки «успею?». */
 data class CatchTarget(val stationIndex: Int, val walkSeconds: Int)
 
 data class FrameOptions(
@@ -68,7 +68,7 @@ data class FrameOptions(
 )
 
 private const val PULSE_SEC = 2.5
-/** След — сколько секунд пути позади поезда и не длиннее скольких метров. */
+/** След - сколько секунд пути позади поезда и не длиннее скольких метров. */
 private const val TRAIL_SEC = 40.0
 private const val TRAIL_MAX_M = 900.0
 private const val GREEN = 0xFF00E676.toInt()
@@ -95,12 +95,12 @@ fun buildMapFrame(
     val stations = repo.stations
 
     // «Успею?»: для каждого направления поезда, идущие к станции пользователя, по времени
-    // прихода на неё. Раньше, чем дойдёшь, — бледные; первый, на который успеваешь, — подсвечен.
+    // прихода на неё. Раньше, чем дойдёшь, - бледные; первый, на который успеваешь, - подсвечен.
     val missed = HashSet<TrainPosition>()
     val caught = HashMap<TrainPosition, Int>()
     opts.catchTarget?.let { ct ->
         for (direction in Directions.ALL) {
-            // На конечную «по ходу» не сядешь — там поезд заканчивает рейс.
+            // На конечную «по ходу» не сядешь - там поезд заканчивает рейс.
             val finalIndex = if (direction == Directions.SOUTH) stations.lastIndex else 0
             if (ct.stationIndex == finalIndex) continue
             val candidates = trains.filter { it.direction == direction }.mapNotNull { t ->
@@ -142,7 +142,7 @@ fun buildMapFrame(
         effects += EffectCircle(selectedPos.lat, selectedPos.lon, 21f, 2.5f, WHITE, 0.95f)
     }
 
-    // Вспышки: поезд прибыл на станцию — от неё расходятся два кольца цвета направления.
+    // Вспышки: поезд прибыл на станцию - от неё расходятся два кольца цвета направления.
     if (opts.pulses && opts.showTrains) {
         for (e in sim.recentArrivals(dayType, nowMin, PULSE_SEC)) {
             val s = stations.getOrNull(e.stationIndex) ?: continue
@@ -164,7 +164,7 @@ fun buildMapFrame(
         }
     }
 
-    // Тепловой след: кусок пути позади каждого поезда — сколько он проехал за TRAIL_SEC.
+    // Тепловой след: кусок пути позади каждого поезда - сколько он проехал за TRAIL_SEC.
     val trails = if (!opts.trails) emptyList() else trains.map { t ->
         val g = repo.geometry
         val head = g.globalAt(t.fromIndex, t.toIndex, t.fraction)

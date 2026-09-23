@@ -103,7 +103,7 @@ fun SettingsScreen(settings: Settings, onBack: () -> Unit, onOpenHistory: () -> 
         ToggleRow("Таймер над поездами", settings.showTrainTimers) { settings.showTrainTimers = it }
         ToggleRow("Тепловой след за поездами", settings.showTrails) { settings.showTrails = it }
         ToggleRow("Вспышка станции при прибытии", settings.showPulses) { settings.showPulses = it }
-        ToggleRow("«Успею?» — подсветка поездов", settings.showCatch) { settings.showCatch = it }
+        ToggleRow("«Успею?» - подсветка поездов", settings.showCatch) { settings.showCatch = it }
         ToggleRow("Подписи станций", settings.showLabels) { settings.showLabels = it }
         ToggleRow("Пеший маршрут и «вы здесь»", settings.showWalkRoute) { settings.showWalkRoute = it }
         Spacer(Modifier.size(18.dp))
@@ -139,15 +139,15 @@ fun SettingsScreen(settings: Settings, onBack: () -> Unit, onOpenHistory: () -> 
         Spacer(Modifier.size(18.dp))
 
         SectionTitle("Доступность")
-        ToggleRow("Компас — только входы с пандусом или лифтом", settings.accessibleOnly) { settings.accessibleOnly = it }
-        Hint("С TalkBack на карте появится кнопка «Все станции» — список со временем, который озвучивается.")
+        ToggleRow("Компас - только входы с пандусом или лифтом", settings.accessibleOnly) { settings.accessibleOnly = it }
+        Hint("С TalkBack на карте появится кнопка «Все станции» - список со временем, который озвучивается.")
         Spacer(Modifier.size(18.dp))
 
         SectionTitle("Офлайн-карта")
         val o = offline
         Hint(
             when {
-                o == null -> "Карта города для темы «${settings.theme.title}» не скачана. Около 20–40 МБ."
+                o == null -> "Карта города для темы «${settings.theme.title}» не скачана. Около 20-40 МБ."
                 o.error != null -> "Ошибка: ${o.error}"
                 o.done -> "Скачана: ${o.bytes / 1_000_000} МБ. Без сети карта останется на месте."
                 else -> "Скачиваю: ${o.percent}% (${o.bytes / 1_000_000} МБ)…"
@@ -180,7 +180,7 @@ fun SettingsScreen(settings: Settings, onBack: () -> Unit, onOpenHistory: () -> 
             "Метро Екатеринбург · расписание metro-ektb.ru\n" +
                 "Карта © OpenStreetMap, CARTO · маршрут © OSRM · поиск © Nominatim\n" +
                 "Входы и форма линии © OpenStreetMap · погода © Open-Meteo\n" +
-                "Фото станций — Wikimedia Commons, авторы и лицензии указаны у каждого фото",
+                "Фото станций - Wikimedia Commons, авторы и лицензии указаны у каждого фото",
             fontSize = 11.sp,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )

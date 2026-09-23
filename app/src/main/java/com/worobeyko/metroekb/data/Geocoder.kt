@@ -12,7 +12,7 @@ data class Place(val title: String, val subtitle: String, val lat: Double, val l
 
 /**
  * Поиск адреса через OpenStreetMap Nominatim, только в пределах Екатеринбурга. Правила
- * сервиса: не чаще запроса в секунду и понятный User-Agent — ищем по кнопке, а не по буквам.
+ * сервиса: не чаще запроса в секунду и понятный User-Agent - ищем по кнопке, а не по буквам.
  */
 object Geocoder {
     suspend fun search(query: String): List<Place> = withContext(Dispatchers.IO) {

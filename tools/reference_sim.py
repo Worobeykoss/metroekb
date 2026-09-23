@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Референс-реализация логики TrainSimulator на Python — чтобы проверить модель
+Референс-реализация логики TrainSimulator на Python - чтобы проверить модель
 на примерах пользователя ДО порта в Kotlin.
 
 Два выхода из одних данных:
@@ -58,7 +58,7 @@ def inflight_trains(day_type, now_hhmm):
     trains = []
     n = len(STATIONS)
     for d in (SOUTH, NORTH):
-        # порядок пар: юг — индекс растёт (A=i, B=i+1); север — индекс падает (A=i, B=i-1)
+        # порядок пар: юг - индекс растёт (A=i, B=i+1); север - индекс падает (A=i, B=i-1)
         pairs = [(i, i + 1) for i in range(n - 1)] if d == SOUTH else [(i, i - 1) for i in range(n - 1, 0, -1)]
         for a_idx, b_idx in pairs:
             a_id, b_id = STATIONS[a_idx]["id"], STATIONS[b_idx]["id"]
@@ -68,7 +68,7 @@ def inflight_trains(day_type, now_hhmm):
                 continue
             for k, tA in enumerate(a_times):
                 next_tA = a_times[k + 1] if k + 1 < len(a_times) else 10 ** 9
-                # tB — ближайшее время на B строго позже tA и раньше следующего поезда с A
+                # tB - ближайшее время на B строго позже tA и раньше следующего поезда с A
                 tB = next((t for t in b_times if tA < t < next_tA), None)
                 if tB is None:
                     continue
@@ -90,7 +90,7 @@ def fmt_panel(station_id, day_type, now):
             continue
         p = panel[d]
         nxt = ", ".join(f"{t} (через {dt} мин)" for t, dt in p["next"])
-        sl = f"{p['since_last']} мин назад" if p["since_last"] is not None else "—"
+        sl = f"{p['since_last']} мин назад" if p["since_last"] is not None else "-"
         print(f"  {labels[d]}:")
         print(f"     следующие: {nxt}")
         print(f"     последний прошёл: {sl}")

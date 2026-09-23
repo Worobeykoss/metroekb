@@ -10,7 +10,7 @@ import kotlinx.serialization.builtins.MapSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
 
-/** Какой вагон удобнее к нужному выходу — отмечает сам пользователь. */
+/** Какой вагон удобнее к нужному выходу - отмечает сам пользователь. */
 @Serializable
 enum class BestCar(val title: String) {
     FIRST("первый"),
@@ -29,7 +29,7 @@ data class StationNote(
 
 /**
  * Личные данные пользователя, которые должны пережить перезапуск: избранные станции и
- * заметки. Хранятся в SharedPreferences; поля — Compose-состояние, UI обновляется сам.
+ * заметки. Хранятся в SharedPreferences; поля - Compose-состояние, UI обновляется сам.
  */
 class UserStore private constructor(private val prefs: SharedPreferences) {
 

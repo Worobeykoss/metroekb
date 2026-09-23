@@ -34,7 +34,7 @@ internal fun serviceHhmm(minute: Int): String {
     return "%02d:%02d".format(m / 60, m % 60)
 }
 
-/** Кнопка-«пилюля» в комикс-стиле. filled — залитая (включённое состояние). */
+/** Кнопка-«пилюля» в комикс-стиле. filled - залитая (включённое состояние). */
 @Composable
 internal fun PillButton(text: String, filled: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
     Text(
@@ -53,8 +53,8 @@ internal fun PillButton(text: String, filled: Boolean, onClick: () -> Unit, modi
 
 /**
  * Окно поезда (по тапу на поезд): куда едет, перегон, примерно когда будет на следующей
- * станции, прогресс перегона; «Следить» ведёт камеру за поездом, «Из кабины» — вид из кабины.
- * train == null — поезд уже прибыл на конечную.
+ * станции, прогресс перегона; «Следить» ведёт камеру за поездом, «Из кабины» - вид из кабины.
+ * train == null - поезд уже прибыл на конечную.
  */
 @Composable
 fun TrainDialog(

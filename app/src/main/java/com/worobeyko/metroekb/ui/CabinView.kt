@@ -52,7 +52,7 @@ private val SleeperColor = Color(0xFF4A4030)
 private val RailColor = Color(0xFF8A93A6)
 private val PlatformColor = Color(0xFFD9D2B8)
 
-/** Кольца тоннеля — через каждые RING_SPACING_M метров. */
+/** Кольца тоннеля - через каждые RING_SPACING_M метров. */
 private const val RING_SPACING_M = 8f
 private const val RINGS = 16
 /** С какого расстояния до станции видна платформа, м. */
@@ -71,7 +71,7 @@ private fun speedMps(distanceM: Double, durationMin: Int, fraction: Double): Dou
 /**
  * Вид из кабины: едем по тоннелю вместе с реальным поездом [ref]. Кольца тоннеля летят
  * навстречу со скоростью поезда, перед станцией появляется светлая платформа с названием.
- * [locate] даёт текущее положение поезда (null — прибыл на конечную).
+ * [locate] даёт текущее положение поезда (null - прибыл на конечную).
  */
 @Composable
 fun CabinView(
@@ -140,7 +140,7 @@ fun CabinView(
                 drawText(layout, topLeft = Offset(c.x - layout.size.width / 2f, c.y - layout.size.height / 2f))
             }
 
-            // Кольца тоннеля, лампы и шпалы — летят навстречу.
+            // Кольца тоннеля, лампы и шпалы - летят навстречу.
             for (i in 0 until RINGS) {
                 val z = ((i + phase) % RINGS) / RINGS
                 val k = z.pow(2.3f)
@@ -187,7 +187,7 @@ fun CabinView(
             }
             Spacer(Modifier.height(10.dp))
             if (p != null && next != null) {
-                Text("следующая — ${next.name}", fontSize = 17.sp, fontWeight = FontWeight.Bold, color = Color.White)
+                Text("следующая - ${next.name}", fontSize = 17.sp, fontWeight = FontWeight.Bold, color = Color.White)
                 EtaLabel(p.etaSeconds, accent, 40.sp)
             }
         }

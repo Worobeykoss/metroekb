@@ -45,7 +45,7 @@ class ScheduleParserTest {
 
     @Test
     fun scheme_splits_exits_by_platform_end() {
-        // Линия идёт на юг (курс 180°): выход севернее станции — у «северного» конца.
+        // Линия идёт на юг (курс 180°): выход севернее станции - у «северного» конца.
         val exits = StationScheme.exits(
             56.85, 60.60, 180.0,
             listOf(

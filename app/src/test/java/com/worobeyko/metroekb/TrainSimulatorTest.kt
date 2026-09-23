@@ -21,7 +21,7 @@ import java.time.LocalTime
 
 /**
  * JVM-тесты ядра на РЕАЛЬНОМ bundled-расписании (assets/schedule.json).
- * Ключевая проверка — пример пользователя: Уралмаш, выходные 12:00 → 5 и 6 минут.
+ * Ключевая проверка - пример пользователя: Уралмаш, выходные 12:00 → 5 и 6 минут.
  */
 class TrainSimulatorTest {
 
@@ -99,18 +99,18 @@ class TrainSimulatorTest {
 
     @Test
     fun no_trains_deep_night() {
-        // 03:30 — метро закрыто, служебная минута = (3+24? нет: 3>2 -> 3)*60. Проверяем пустоту.
+        // 03:30 - метро закрыто, служебная минута = (3+24? нет: 3>2 -> 3)*60. Проверяем пустоту.
         val trains = sim.inflightTrains(DayType.WEEKEND, min(3, 30))
         assertTrue(trains.isEmpty())
         val arr = sim.stationArrivals("uralmash", DayType.WEEKEND, min(3, 30))
-        // Утренние поезда ещё впереди — «следующий» есть, «последний» может отсутствовать.
+        // Утренние поезда ещё впереди - «следующий» есть, «последний» может отсутствовать.
         assertNotNull(arr)
     }
 
     @Test
     fun train_within_tolerance_is_still_arriving() {
         // Уралмаш, выходные: на юг поезд в 12:05. Через 20 с после графика он ещё «прибывает»,
-        // через 40 с — уже ушёл и считается предыдущим.
+        // через 40 с - уже ушёл и считается предыдущим.
         val at20 = sim.stationArrivals("uralmash", DayType.WEEKEND, min(12, 5) + 20 / 60.0)
         val south20 = at20.directions.first { it.direction == Directions.SOUTH }
         assertEquals("12:05", south20.next[0].hhmm)
@@ -138,7 +138,7 @@ class TrainSimulatorTest {
 
     @Test
     fun locate_is_consistent_with_inflight() {
-        // Любой поезд на карте находится по своей «личности» сейчас и через 3.5 мин — на одном
+        // Любой поезд на карте находится по своей «личности» сейчас и через 3.5 мин - на одном
         // из перегонов, которые показывает inflightTrains в тот момент.
         for (day in listOf(DayType.WEEKEND, DayType.WEEKDAY)) {
             if (!repo.hasData(day)) continue
@@ -169,13 +169,13 @@ class TrainSimulatorTest {
         assertNotNull(at)
         val leg = sim.locate(ref, DayType.WEEKEND, ref.minute + 0.1)
         assertEquals(leg!!.arriveMin, at)
-        // Станция позади — null.
+        // Станция позади - null.
         assertNull(sim.arrivalAt(ref, 0, DayType.WEEKEND))
     }
 
     @Test
     fun trains_reach_both_terminals() {
-        // Последний перегон к конечной достраивается — поезда доезжают до Ботанической и Проспекта.
+        // Последний перегон к конечной достраивается - поезда доезжают до Ботанической и Проспекта.
         val last = repo.stations.lastIndex
         var south = false
         var north = false
@@ -192,7 +192,7 @@ class TrainSimulatorTest {
 
     @Test
     fun recent_arrivals_see_scheduled_train() {
-        // Уралмаш, выходные, на юг 12:05: через 1 с после графика — свежее прибытие.
+        // Уралмаш, выходные, на юг 12:05: через 1 с после графика - свежее прибытие.
         val events = sim.recentArrivals(DayType.WEEKEND, MetroClock.serviceMinute("12:05") + 1 / 60.0, 2.5)
         assertTrue(events.any { it.stationIndex == 1 && it.direction == Directions.SOUTH && it.ageSec in 0.5..1.5 })
     }
@@ -216,7 +216,7 @@ class TrainSimulatorTest {
         assertTrue(repo.geometry.segmentCount == repo.stations.size - 1)
         assertTrue(repo.geometry.totalLength >= straight - 1)
         assertTrue(repo.geometry.totalLength < straight * 1.2)
-        // Концы перегонов — ровно в станциях.
+        // Концы перегонов - ровно в станциях.
         for (i in repo.stations.indices) {
             val p = repo.geometry.pointAt(repo.geometry.stationGlobal(i))
             assertTrue(LineGeometry.distanceM(p.lat, p.lon, repo.stations[i].lat, repo.stations[i].lon) < 1.0)

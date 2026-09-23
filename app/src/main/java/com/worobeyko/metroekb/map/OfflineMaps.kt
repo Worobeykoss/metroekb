@@ -11,13 +11,13 @@ import org.maplibre.android.offline.OfflineRegionStatus
 import org.maplibre.android.offline.OfflineTilePyramidRegionDefinition
 
 /**
- * Офлайн-карта Екатеринбурга: тайлы стиля текущей темы для масштабов 10–14 (дальше
+ * Офлайн-карта Екатеринбурга: тайлы стиля текущей темы для масштабов 10-14 (дальше
  * векторные тайлы просто увеличиваются). MapLibre сам берёт их из базы, когда нет сети.
  */
 object OfflineMaps {
     data class Status(val percent: Int, val bytes: Long, val done: Boolean, val error: String? = null)
 
-    /** null — офлайн-карты нет. */
+    /** null - офлайн-карты нет. */
     val status = mutableStateOf<Status?>(null)
 
     private fun nameFor(theme: MapTheme) = "ekb-${theme.name}"
